@@ -36,5 +36,4 @@ def inner_siou(box1, box2, ratio = 1.0, xywh=True, eps=1e-7):
     omiga_h = torch.abs(h1 - h2) / torch.max(h1, h2)
     shape_cost = torch.pow(1 - torch.exp(-1 * omiga_w), 4) + torch.pow(1 - torch.exp(-1 * omiga_h), 4)
     inner_siou = inner_iou - 0.5 * (distance_cost + shape_cost)
-
     return inner_siou  
