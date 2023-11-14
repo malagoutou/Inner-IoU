@@ -25,5 +25,4 @@ def inner_ciou(box1, box2, ratio = 1.0, xywh=True, eps=1e-7):
     v = (4 / math.pi ** 2) * torch.pow(torch.atan(w2 / h2) - torch.atan(w1 / h1), 2)
     with torch.no_grad():
         alpha = v / (v - iou + (1 + eps))
-    inner_ciou = inner_iou - (rho2 / c2 + v * alpha)  
-    return inner_ciou
+    return inner_iou - (rho2 / c2 + v * alpha)  
